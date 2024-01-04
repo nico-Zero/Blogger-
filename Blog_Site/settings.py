@@ -10,12 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-# import mimetypes
-import whitenoise
 import dj_database_url
 from pathlib import Path
 import os
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,7 +33,7 @@ ALLOWED_HOSTS = ["django-blogger-web-application.onrender.com"]
 # Application definition
 
 INSTALLED_APPS = [
-    # installed_Apps
+    # Installed_Apps
     "bootstrap5",
     "ckeditor",
     "django.contrib.admin",
@@ -60,7 +57,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "whitenoise.middleware.WhitenoiseMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "Blog_Site.urls"
@@ -82,8 +80,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "Blog_Site.wsgi.application"
-
-# mimetypes.add_type("text/css", ".css", True)
 
 
 # Database
@@ -142,7 +138,11 @@ STATICFILES_DIRS = [
     / "static"
     / "main",
 ]
-
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 

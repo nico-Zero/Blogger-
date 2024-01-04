@@ -9,7 +9,7 @@ db==0.1.1
 db-sqlite3==0.0.1
 defusedxml==0.7.1
 dj-database-url==2.1.0
-Django==5.0
+Django==4.7
 django-allauth==0.59.0
 django-bootstrap==0.2.4
 django-bootstrap-v5==1.0.11

@@ -11,9 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY =  os.environ.get("SECRET_KEY")
 
-DEBUG = False
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = ["django-blogger-web-application.onrender.com"]
+ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
 
 
 # Application definition

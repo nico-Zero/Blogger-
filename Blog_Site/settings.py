@@ -83,14 +83,15 @@ WSGI_APPLICATION = "Blog_Site.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
+
 database_url = os.environ.get("DATABASES_URL")
-DATABASES["default"] = dj_database_url.parse(database_url) #type: ignore
+DATABASES["default"] = dj_database_url.parse(database_url)  # type: ignore
 
 
 # Password validation
